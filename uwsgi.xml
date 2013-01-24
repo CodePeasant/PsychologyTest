@@ -1,0 +1,9 @@
+<uwsgi>
+<socket>127.0.0.1:8080</socket>
+<listen>80</listen>
+<module>index</module>
+<master />
+<pythonpath>/media/document/Unfinish/WebpyTest</pythonpath>
+<processes>2</processes>
+<daemonize>/media/document/Unfinish/WebpyTest/log/uwsgi.log</daemonize>
+</uwsgi>
