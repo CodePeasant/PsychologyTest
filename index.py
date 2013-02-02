@@ -1,10 +1,12 @@
 import web
-urls = ("/.*", "hello")
+
+urls = ("/.*", "index")
 render=web.template.render("templates")
 app = web.application(urls, globals())
-class hello:
-    name={1:"Shadow Song",2:"MYW"}
+
+class index:
     def GET(self):
-        return render.hello(self.name)
+        return render.index()
+    
 if __name__ == "__main__":
     app.run()

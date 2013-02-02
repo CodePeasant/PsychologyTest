@@ -1,0 +1,9 @@
+body{
+    background:#010101;
+}
+#homepage{
+    position: absolute;
+    left:20px;
+    top:20px;
+    border:0;
+}
