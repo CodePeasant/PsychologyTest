@@ -1,51 +1,34 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>CodePeasent's Home</title>
-		<link rel="stylesheet" href="/css/normalize.css" />
-		<link rel="stylesheet" href="/css/style.css" />
-		<script type="text/javascript" src="/js/script.js"></script>
-		<link rel="icon" type="image/x-icon" href="/img/icon.png" />
-		<link rel="stylesheet" href="/css/index.css" />
-	</head>
-	<body>
-		<!--
-		 *@name:About Me
-		 *@note:show the myself
-		 *
-		 -->
-		<div class="blue">
-			<a name="aboutme"></a>
-			<div class="center_block">
-				<h1><img src="/img/aboutme.png" alt="paladin"/>About Me</h1>
-				<ul>
-					<li>
-						<span>Position:</span>Soft Development Engineer
-					</li>
-					<li>
-						<span>Company:</span>Aqiyi,Peking,since 2013.2
-					</li>
-					<li>
-						<span>Focus:</span>Python/NoSQL/Linux/C++/KnowledgeDiscovery
-					</li>
-					<li>
-						<span>University:</span>HUST.Wuhan.Hubei(2009.9-2013.6)
-					</li>
-					<li>
-						<span>Hometown:</span>Punning.Guangdong
-					</li>
-					<li>
-						<span>E-mail:</span>1032197148@qq.com
-					</li>
-				</ul>
-			</div>
-		</div>
-		
-		<footer>
-			<div class="footer_block black">
-				Copyright &copy; CodePeasent 2013 | All Rights Reserved. 
-			</div>
-		</footer>
-	</body>
-</html>
+$def with(todos)
+$:render.header()
+<!--
+ *@name:About Me
+ *@note:show the myself
+ *
+ -->
+<div class="blue">
+	<a name="aboutme"></a>
+	<div class="center_block">
+		<h1><img src="/static/img/aboutme.png" alt="paladin"/>About Me</h1>
+		<ul>
+			<li>
+				<span>Position:</span>Soft Development Engineer
+			</li>
+			<li>
+				<span>Company:</span>Aqiyi,Peking,since 2013.2
+			</li>
+			<li>
+				<span>Focus:</span>Python/NoSQL/Linux/C++/KnowledgeDiscovery
+			</li>
+			<li>
+				<span>University:</span>HUST.Wuhan.Hubei(2009.9-2013.6)
+			</li>
+			<li>
+				<span>Hometown:</span>Punning.Guangdong
+			</li>
+			<li>
+				<span>E-mail:</span>1032197148@qq.com
+			</li>
+		</ul>
+	</div>
+</div>
+$:render.foot()
