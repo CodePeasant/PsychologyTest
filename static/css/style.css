@@ -18,10 +18,17 @@ ul{
 }
 h1 {
     font-size: 70px;
+    text-align:center;
 }
-
+.center{
+    text-align: center;
+    margin:auto;
+}
+.left{
+    text-align:left;
+}
 .center_block{
-    width:800px;
+    width:600px;
     padding:20px 0;
     margin:0 auto;
 }

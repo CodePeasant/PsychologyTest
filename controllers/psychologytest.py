@@ -10,5 +10,4 @@ tb = 'todo'
 class Index:
 
     def GET(self):
-        todos = db.select(tb, order='finished asc, id asc')
-        return render.index(todos)
+        return render.index("Hello World")

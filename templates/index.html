@@ -1,34 +1,137 @@
 $def with(todos)
 $:render.header()
 <!--
- *@name:About Me
- *@note:show the myself
+ *@name:instruction
+ *
+ -->
+<div class="blue ha">
+	<a name="instruction"></a>
+	<div class="center_block">
+		<h1>指导语</h1>
+		<article class="left">
+			本次测试仅为学术研究所用，您所填写的所有信息，我们都会为您保密并且认真筛选研究，并作为重要的事实依据。感谢您的支持与配合。
+		</article>
+		<div class="center">
+			<input type="button" value="确认已读" id="accepted" class="black"/>
+		</div>
+	</div>
+</div>
+<!--
+ *@name:grouping
+ *
+ -->
+<div class="pink">
+	<a name="grouping"></a>
+	<div class="center_block">
+		<h1>分组</h1>
+		<article class="left">
+			您好，请根据主试的安排选择您的分组，您将只有一次选择机会。
+		</article>
+		<div class="center">
+			<input type="button" value="第一组" id="first_group" class="black"/>
+			<input type="button" value="第二组" id="second_group" class="black"/>
+		</div>
+	</div>
+</div>
+
+<!--
+ *@name:information
+ *
+ -->
+<div class="purple">
+	<a name="information"></a>
+	<div class="center_block">
+		<h1>志愿者信息</h1>
+		<article class="center">
+			请在下面的空格内填写您的相关信息
+		</article>
+		<div class="center">
+			<form>
+				姓名：<input type="text" id="name" name="name"/><br/>
+				年龄：<input type="text" id="age" name="age"/><br/>
+				学校：<input type="text" id="school" name="school"/><br/>
+				专业：<input type="text" id="major" name="major"/><br/>
+				<input type="submit" value="提交"class="black"/>
+				<input type="reset" value="清空"class="black"/>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!--
+ *@name:first_group_1
+ *
+ -->
+<div class="cyan">
+	<a name="first_group_1"></a>
+	<div class="center_block">
+		<h1>第一组-选择1</h1>
+		<article class="left">
+			<p>
+				请您认真考虑A&amp;B的内容后给出您的选择
+			</p>
+			<p>
+				选择A:<br/>
+				完全肯定获得一好结果         $1,000,000  
+			</p>
+			<p>
+				选择B:<br/>
+				0.10  的概率获得一非常好结果  $5,000,000<br/>
+				0.89  的概率获得一好结果      $1,000,000<br/>
+            	0.01  的概率获得一坏结果      $0<br/>
+
+			</p>
+		</article>
+		<div class="center">
+			<form>
+				<input type="button" value="我选择A" id="group1_A" name="group1_A" class="black"/>
+				<input type="button" value="我选择B" id="group1_B" name="group1_B" class="black"/>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!--
+ *@name:first_group_2
+ *
+ -->
+<div class="yellow">
+	<a name="first_group_2"></a>
+	<div class="center_block">
+		<h1>第一组-选择2</h1>
+		<article class="left">
+			<p>
+				请您认真考虑C&amp;D的内容后给出您的选择
+			</p>
+			<p> 
+				选择C:<br/>
+				0.11  的概率获得一非常好结果  $1,000,000<br/> 
+            	0.89  的概率获得一坏结果      $0 
+			</p>
+			<p>
+				选择D:<br/>
+				0.10  的概率获得一非常好结果  $5,000,000<br/>
+            	0.90  的概率获得一坏结果      $0 
+			</p>
+		</article>
+		<div class="center">
+			<form>
+				<input type="button" value="我选择C" id="group1_C" name="group1_C" class="black"/>
+				<input type="button" value="我选择D" id="group1_D" name="group1_D" class="black"/>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!--
+ *@name:thanks
  *
  -->
 <div class="blue">
-	<a name="aboutme"></a>
+	<a name="thanks"></a>
 	<div class="center_block">
-		<h1><img src="/static/img/aboutme.png" alt="paladin"/>About Me</h1>
-		<ul>
-			<li>
-				<span>Position:</span>Soft Development Engineer
-			</li>
-			<li>
-				<span>Company:</span>Aqiyi,Peking,since 2013.2
-			</li>
-			<li>
-				<span>Focus:</span>Python/NoSQL/Linux/C++/KnowledgeDiscovery
-			</li>
-			<li>
-				<span>University:</span>HUST.Wuhan.Hubei(2009.9-2013.6)
-			</li>
-			<li>
-				<span>Hometown:</span>Punning.Guangdong
-			</li>
-			<li>
-				<span>E-mail:</span>1032197148@qq.com
-			</li>
-		</ul>
+		<h1>测试完成</h1>
+		<h1>再次感谢您的参与</h1>
 	</div>
 </div>
 $:render.foot()
