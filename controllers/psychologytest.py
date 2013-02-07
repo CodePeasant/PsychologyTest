@@ -8,6 +8,13 @@ db = settings.db
 tb = 'todo'
 
 class Index:
+    
+    def GET(self):
+        return render.index()
+
+class Register:
 
     def GET(self):
-        return render.index("Hello World")
+        information=web.input()
+        return information.name+information.age+information.school+information.major;
+    
