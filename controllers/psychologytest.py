@@ -3,7 +3,7 @@
 import web
 from config import settings
 import extendlib.simplejson
-from extendlib.pyExcelerator import *
+import extendlib.pyExcelerator
 import StringIO
 render = settings.render
 db = settings.db  
@@ -65,7 +65,7 @@ class SaveExcel:
         web.header('Content-Disposition','attachment; filename=psychologytest.xls')
         memoryFile = StringIO.StringIO() #Memory file
         
-        w = Workbook() 
+        w = extendlib.pyExcelerator.Workbook() 
         ws = w.add_sheet('psychologytest')
         #write title
         ws.write(0,0,u'被试编号')       
