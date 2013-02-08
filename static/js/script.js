@@ -1,10 +1,10 @@
 var duration=500;
 var count_train_1=0;
 var count_train_2=0;
-var probility=0.5;
-var good_bonus=5000000;
-var bad_bonus=-100000;
-var fix_bonus=300000;
+var probility;
+var good_bonus;
+var bad_bonus;
+var fix_bonus;
 
 $(function(){
 	/**
@@ -16,7 +16,6 @@ $(function(){
 		good_bonus= data["bonus_good"]
 		bad_bonus = data["bonus_bad"];
 		fix_bonus = data["bonus_fix"];
-
 	},"json");
 	/**
 	 * if the volunteer accept the agreement, 

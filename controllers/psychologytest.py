@@ -2,7 +2,7 @@
 # coding: utf-8
 import web
 from config import settings
-import simplejson
+import extendlib.simplejson
 render = settings.render
 db = settings.db  
 session=web.config._session
@@ -25,7 +25,7 @@ class GetCondition:
         results = db.select('cond', what="probility_good,bonus_good,bonus_bad,bonus_fix,condition_id", where="is_default=1")
         data=results[0]
         session.condition_id=data.condition_id
-        return simplejson.dumps(data)
+        return extendlib.simplejson.dumps(data)
 
 class Group1_1:
     '''Process with the answer of the first question in group 1'''
