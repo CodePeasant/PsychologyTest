@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="/static/css/normalize.css" />
 		<link rel="stylesheet" href="/static/css/style.css" />
 		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="/static/js/json2.js"></script>
 		<script type="text/javascript" src="/static/js/script.js"></script>
 		<link rel="icon" type="image/x-icon" href="/static/img/icon.png" />
 	</head>
@@ -39,14 +40,21 @@
 					</p>
 				</article>
 				<div class="center">
-					姓名：<input type="text" id="name" class="text"/>
-					<br/>
-					年龄：<input type="text" id="age" class="text"/>
-					<br/>
-					学校：<input type="text" id="school" class="text"/>
-					<br/>
-					专业：<input type="text" id="major" class="text"/>
-					<br/>
+					<div class="left" style="width: 400px;margin:auto">
+						年龄：<input type="text" id="age" class="text" style="width:100px"/>
+						<br/>
+						性别：<select id="sex" class="text">  
+							   <option value="男">男</option> 
+							   <option value="女">女</option>
+						  	</select>  
+						<br/>
+						专业：<select id="major" class="text">  
+						   		<option value="理工">理工</option> 
+						   		<option value="经管">经管</option>
+						   		<option value="人文">人文</option>
+						  	</select>  
+						<br/>
+					</div>
 					<input type="button" value="提交注册信息" id="submit" class="button"/>
 				</div>
 			</div>
@@ -173,8 +181,8 @@
 					收益：
 					<input type="text" id="group2_train_bonus" disabled="disabled" class="text"/>
 					<br/>
-					<input type="button" value="选择方案一" id="group2_train_1" class="button"/>
-					<input type="button" value="选择方案二" id="group2_train_2" class="button"/>
+					<input type="button" value="选择方案A" id="group2_train_1" class="button"/>
+					<input type="button" value="选择方案B" id="group2_train_2" class="button"/>
 					<input type="button" value="完成训练" id="group2_train_end" class="button">
 				</div>
 			</div>
@@ -196,8 +204,8 @@
 					收益：
 					<input type="text" id="group2_test_bonus" disabled="disabled" class="text"/>
 					<br/>
-					<input type="button" value="选择方案一" id="group2_test_1" class="button"/>
-					<input type="button" value="选择方案二" id="group2_test_2" class="button"/>
+					<input type="button" value="选择方案A" id="group2_test_1" class="button"/>
+					<input type="button" value="选择方案B" id="group2_test_2" class="button"/>
 				</div>
 			</div>
 		</div>

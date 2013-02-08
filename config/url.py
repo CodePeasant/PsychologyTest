@@ -6,4 +6,11 @@ pre_fix = 'controllers.psychologytest.'
 urls = (
     '/',                pre_fix + 'Index',
     '/register',        pre_fix + 'Register',
+    '/getcondition',    pre_fix + 'GetCondition',
+    
+    '/group1_1',        pre_fix + 'Group1_1',
+    '/group1_2',        pre_fix + 'Group1_2',
+    
+    '/group2',          pre_fix + 'Group2',
+    
 )

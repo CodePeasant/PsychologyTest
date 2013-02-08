@@ -5,40 +5,106 @@ var probility=0.5;
 var good_bonus=5000000;
 var bad_bonus=-100000;
 var fix_bonus=300000;
+
 $(function(){
+	/**
+	 * get the data used by javascript from the server
+	 * and set the global variable like probility
+	 */
+	$.get("/getcondition",function(data){
+		probility = data["probility_good"];
+		good_bonus= data["bonus_good"]
+		bad_bonus = data["bonus_bad"];
+		fix_bonus = data["bonus_fix"];
+
+	},"json");
+	/**
+	 * if the volunteer accept the agreement, 
+	 * turn to the register page
+	 */
 	$("#accepted").click(function(){
 		$("#instruction").slideUp(duration);
 		$("#information").slideDown(duration);
 	})
-	/*
+	/**
+	 * post the volunteer register information to the server
+	 */
 	$("#submit").click(function(){
+		//get data
+		data={
+			age:$("#age").val(),
+			sex:$("#sex").val(),
+			major:$("#major").val()
+		}
+		//post the data to the server
+		$.get("/register",data);
+		//page convert animat
 		$("#information").slideUp(duration);
 		$("#grouping").slideDown(duration);
 	})
-	*/
+	
 	/**
-	 * page animat for group1
+	 * in the grouping page, the volunteer choose the group 1,
+	 * and the code after server for the experiment of group 1
 	 */
 	$("#group1").click(function(){
+		//page convert animat
 		$("#grouping").slideUp(duration);
 		$("#group1_1").slideDown(duration);
+		
 	})
-	$("#group1_A,#group1_B").click(function(){
+	$("#group1_A").click(function(){
+		//post the data to the server
+		data={
+			group1_1:"A"
+		}
+		$.get("/group1_1",data);
+		//page convert animat
 		$("#group1_1").slideUp(duration);
 		$("#group1_2").slideDown(duration);
 	})
-	$("#group1_C,#group1_D").click(function(){
+	$("#group1_B").click(function(){
+		//post the data to the server
+		data={
+			group1_1:"B"
+		}
+		$.get("/group1_1",data);
+		//page convert animat
+		$("#group1_1").slideUp(duration);
+		$("#group1_2").slideDown(duration);
+	})
+	
+	$("#group1_C").click(function(){
+		//post the data to the server
+		data={
+			group1_2:"C"
+		}
+		$.get("/group1_2",data);
+		//page convert animat
+		$("#group1_2").slideUp(duration);
+		$("#thanks").slideDown(duration);
+	})
+	$("#group1_D").click(function(){
+		//post the data to the server
+		data={
+			group1_2:"D"
+		}
+		$.get("/group1_2",data);
+		//page convert animat
 		$("#group1_2").slideUp(duration);
 		$("#thanks").slideDown(duration);
 	})
 	
+	/**
+	 * in the grouping page, the volunteer choose the group 2,
+	 * and the code after server for the experiment of group 2
+	 */
 	$("#group2").click(function(){
+		//page convert animat
 		$("#grouping").slideUp(duration);
 		$("#group2_1").slideDown(duration);
 	})
-	/**
-	 * animat for group 2
-	 */
+	
 	$("#group2_train_begin").click(function(){
 		$("#group2_1").slideUp(duration);
 		$("#group2_2").slideDown(duration);
@@ -51,7 +117,7 @@ $(function(){
 		setTimeout(function(){
 			$("#group2_3").slideUp(duration);
 			$("#thanks").slideDown(duration);
-		},5000)
+		},2000)
 	})
 	/**
 	 * train experiment for gourp2
@@ -68,27 +134,29 @@ $(function(){
 	/**
 	 * test experiment for gourp2
 	 */
-	$("#group2_test_1").click(function(){		
+	$("#group2_test_1").click(function(){
+		//show data		
 		$("#group2_test_bonus").val(Math.random()<probility?good_bonus:bad_bonus);
+		//post the data to the server
+		data={
+			group2:"A"
+		}
+		$.get("/group2",data);
+		
 	})
 	$("#group2_test_2").click(function(){
+		//show data
 		$("#group2_test_bonus").val(fix_bonus);
-	})
-	/**
-	 * for register
-	 */
-	$("#submit").click(function(){
-		//get data
-		data={name:$("#name").val(),
-		age:$("#age").val(),
-		school:$("#school").val(),
-		major:$("#major").val()
-		
+		//post the data to the server
+		data={
+			group2:"B"
 		}
-		$.get("/register",data,
-			function (data){
-				alert(data);
-			});
+		$.get("/group2",data);
 	})
 	
+	
+	
 });
+/*
+ *  
+ */
