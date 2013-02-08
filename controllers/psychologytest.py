@@ -57,7 +57,17 @@ class GetCondition:
         data=results[0]
         session.condition_id=data.condition_id
         return extendlib.simplejson.dumps(data)
-         
+
+class Admin:
+    def GET(self):
+        return render.admin()
+
+class SetCondition:
+    def GET(self):
+        info=web.input()
+        db.update("cond",where="condition_id=1", probility_good=info.probility_good, bonus_good=info.bonus_good, bonus_bad=info.bonus_bad, bonus_fix=info.bonus_fix)
+        return "保存修改成功"
+             
 class SaveExcel:
     
     def GET(self):

@@ -71,10 +71,12 @@ p{
     color:#06406C;
     background-color: #5aa8d9;
 }
-.blue h1{
+.blue h1,a:link,a:active,a:visited{
     color: #c9e5e8;
 }
-
+.blue .text{
+    background-color:#c9e5e8;
+}
 /*purple
  * backgroud:ca9ec1
  * light-color:f0dbec
