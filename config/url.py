@@ -8,6 +8,7 @@ urls = (
     '/register',        pre_fix + 'Register',
     '/getcondition',    pre_fix + 'GetCondition',
     
+    '/grouping',        pre_fix + 'Grouping',
     '/group1_1',        pre_fix + 'Group1_1',
     '/group1_2',        pre_fix + 'Group1_2',
     '/group2',          pre_fix + 'Group2',

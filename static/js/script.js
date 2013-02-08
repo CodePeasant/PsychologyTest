@@ -47,6 +47,14 @@ $(function(){
 	 * and the code after server for the experiment of group 1
 	 */
 	$("#group1").click(function(){
+		//get data
+		data={
+			group_id:1
+		}
+		//post the data to the server
+		$.get("/grouping",data,function(data){
+			alert(data)
+		});
 		//page convert animat
 		$("#grouping").slideUp(duration);
 		$("#group1_1").slideDown(duration);
@@ -99,6 +107,12 @@ $(function(){
 	 * and the code after server for the experiment of group 2
 	 */
 	$("#group2").click(function(){
+		//get data
+		data={
+			group_id:2
+		}
+		//post the data to the server
+		$.get("/grouping",data);
 		//page convert animat
 		$("#grouping").slideUp(duration);
 		$("#group2_1").slideDown(duration);

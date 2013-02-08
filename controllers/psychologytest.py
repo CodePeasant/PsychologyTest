@@ -15,19 +15,20 @@ class Index:
         return render.index()
 
 class Register:
-    '''Process with the user register information and store into the database'''
+    '''Process with the user register information'''
+    def GET(self):
+        information=web.input()
+        session.age=information.age
+        session.sex=information.sex
+        session.major=information.major
+    
+class Grouping:
+    '''Process with the grouping information and store into the database'''
     def GET(self):
         information=web.input()
         #insert the user information into the table user
-        session.user_id=db.insert("user",age=information.age, sex=information.sex, major=information.major)
-
-class GetCondition:
-    '''query the js global setting data from the databaseand then post the data to the client'''
-    def GET(self):
-        results = db.select('cond', what="probility_good,bonus_good,bonus_bad,bonus_fix,condition_id", where="is_default=1")
-        data=results[0]
-        session.condition_id=data.condition_id
-        return extendlib.simplejson.dumps(data)
+        session.user_id=db.insert("user",age=session.age, sex=session.sex, major=session.major,group_id=information.group_id)
+        return information.group_id
 
 class Group1_1:
     '''Process with the answer of the first question in group 1'''
@@ -47,17 +48,59 @@ class Group2:
         and store the disussion the user make in the experiment into the database'''
     def GET(self):
         information=web.input()
-        db.insert("group2",user_id=session.user_id, answer=information.group2, condition_id=session.condition_id) 
+        db.insert("group2",user_id=session.user_id, answer=information.group2, condition_id=session.condition_id)
+
+class GetCondition:
+    '''query the js global setting data from the databaseand then post the data to the client'''
+    def GET(self):
+        results = db.select('cond', what="probility_good,bonus_good,bonus_bad,bonus_fix,condition_id", where="is_default=1")
+        data=results[0]
+        session.condition_id=data.condition_id
+        return extendlib.simplejson.dumps(data)
+         
 class SaveExcel:
     
     def GET(self):
-        web.header('content-type','application/vnd.ms-excel')
-        web.header('Content-Disposition','attachment; filename=test.xls')
-        s = StringIO.StringIO()
-        w = Workbook() #创建一个工作簿        
-        ws = w.add_sheet('Hey, Hades') #创建一个工作表       
-        ws.write(0,0,'bit') #在1行1列写入bit        
-        ws.write(0,1,'huang') #在1行2列写入huang       
-        ws.write(1,0,'xuan') #在2行1列写入xuan                
-        w.save(s)
-        return s.getvalue()
+        web.header('content-type','application/vnd.ms-excel;charset=utf-8')
+        web.header('Content-Disposition','attachment; filename=psychologytest.xls')
+        memoryFile = StringIO.StringIO() #Memory file
+        
+        w = Workbook() 
+        ws = w.add_sheet('psychologytest')
+        #write title
+        ws.write(0,0,u'被试编号')       
+        ws.write(0,1,u'年龄')      
+        ws.write(0,2,u'性别')
+        ws.write(0,3,u'专业')       
+        ws.write(0,4,u'所选分组')      
+        ws.write(0,5,u'所选方案')
+        #wirite content
+        users = db.select('user')
+        count=0
+        for item in users:
+            #read data from database
+            user_id=item["user_id"]
+            age=item["age"]
+            sex=item["sex"]
+            major=item["major"]
+            group_id=item["group_id"]
+            choose=""
+            if group_id==1:
+                chooses=db.select("group1",where="user_id="+str(user_id))[0]
+                choose=chooses["answer1"]+chooses["answer2"]
+            elif group_id==2:
+                chooses=db.select("group2",where="user_id="+str(user_id))[0]
+                choose=chooses["answer"]
+            else:
+                group_id=""
+            
+            #write data into database
+            count+=1
+            ws.write(count,0,user_id)       
+            ws.write(count,1,age)      
+            ws.write(count,2,sex)
+            ws.write(count,3,major)
+            ws.write(count,4,group_id)
+            ws.write(count,5,choose)   
+        w.save(memoryFile)
+        return memoryFile.getvalue()
