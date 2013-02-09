@@ -52,9 +52,7 @@ $(function(){
 			group_id:1
 		}
 		//post the data to the server
-		$.get("/grouping",data,function(data){
-			alert(data)
-		});
+		$.get("/grouping",data);
 		//page convert animat
 		$("#grouping").slideUp(duration);
 		$("#group1_1").slideDown(duration);

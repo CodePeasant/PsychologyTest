@@ -11,7 +11,7 @@ db = web.database(dbn='mysql', db='psychologytest', user='root', pw='')
 
 render = web.template.render('templates/', cache=False)
 
-session = web.session.Session(app, web.session.DiskStore('sessions')) 
+session = web.session.Session(app, web.session.DBStore(db, 'sessions')) 
 
 config = web.storage(
     email='1032197148@qq.com',
