@@ -1,0 +1,224 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>李乐乐的心理测验</title>
+		<link rel="stylesheet" href="/static/css/normalize.css" />
+		<link rel="stylesheet" href="/static/css/style.css" />
+		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="/static/js/script.js"></script>
+		<link rel="icon" type="image/x-icon" href="/static/img/icon.png" />
+	</head>
+	<body>
+		<!--
+		*@name:instruction
+		-->
+		<div class="blue container" id="instruction">
+			<div class="center_block">
+				<h1>指导语</h1>
+				<article class="left">
+					<p>
+						本次测试仅为学术研究所用，您所填写的所有信息，我们都会为您保密并且认真筛选研究，并作为重要的事实依据。感谢您的支持与配合。
+					</p>
+				</article>
+				<div class="center">
+					<input type="button" value="确认已读" id="accepted" class="button"/>
+				</div>
+			</div>
+		</div>
+
+		<!--
+		*@name:information
+		*
+		-->
+		<div class="purple container hidden" id="information">
+			<div class="center_block">
+				<h1>志愿者信息</h1>
+				<article class="center">
+					<p class="center">
+						请在下面的空格内填写您的相关信息
+					</p>
+				</article>
+				<div class="center">
+					<div class="left" style="width: 400px;margin:auto">
+						年龄：<input type="text" id="age" class="text" style="width:100px"/>
+						<br/>
+						性别：<select id="sex" class="text">  
+							   <option value="男">男</option> 
+							   <option value="女">女</option>
+						  	</select>  
+						<br/>
+						专业：<select id="major" class="text">  
+						   		<option value="理工">理工</option> 
+						   		<option value="经管">经管</option>
+						   		<option value="人文">人文</option>
+						  	</select>  
+						<br/>
+					</div>
+					<input type="button" value="提交注册信息" id="submit" class="button"/>
+				</div>
+			</div>
+		</div>
+
+		<!--
+		*@name:grouping
+		-->
+		<div class="pink container hidden" id="grouping">
+			<div class="center_block">
+				<h1>分组</h1>
+				<article class="left">
+					<p>
+						您好，请根据主试的安排选择您的分组，您将只有一次选择机会。
+					</p>
+				</article>
+				<div class="center">
+					<input type="button" value="第一组" id="group1" class="button"/>
+					<input type="button" value="第二组" id="group2" class="button"/>
+				</div>
+			</div>
+		</div>
+
+		<!--
+		*@name:group1_1
+		*
+		-->
+		<div class="cyan container hidden" id="group1_1">
+			<div class="center_block">
+				<h1>第一组-选择1</h1>
+				<article class="left">
+					<p>
+						请您认真考虑A&amp;B的内容后给出您的选择
+					</p>
+					<p>
+						选择A:
+						<br/>
+						完全肯定获得一好结果         $1,000,000
+					</p>
+					<p>
+						选择B:
+						<br/>
+						0.10  的概率获得一非常好结果  $5,000,000
+						<br/>
+						0.89  的概率获得一好结果      $1,000,000
+						<br/>
+						0.01  的概率获得一坏结果      $0
+						<br/>
+
+					</p>
+				</article>
+				<div class="center">
+					<input type="button" value="我选择A" id="group1_A" class="button"/>
+					<input type="button" value="我选择B" id="group1_B" class="button"/>
+				</div>
+			</div>
+		</div>
+		<!--
+		*@name:group1_2
+		*
+		-->
+		<div class="yellow container hidden" id="group1_2">
+			<div class="center_block">
+				<h1>第一组-选择2</h1>
+				<article class="left">
+					<p>
+						请您认真考虑C&amp;D的内容后给出您的选择
+					</p>
+					<p>
+						选择C:
+						<br/>
+						0.11  的概率获得一非常好结果  $1,000,000
+						<br/>
+						0.89  的概率获得一坏结果      $0
+					</p>
+					<p>
+						选择D:
+						<br/>
+						0.10  的概率获得一非常好结果  $5,000,000
+						<br/>
+						0.90  的概率获得一坏结果      $0
+					</p>
+				</article>
+				<div class="center">
+					<input type="button" value="我选择C" id="group1_C" class="button"/>
+					<input type="button" value="我选择D" id="group1_D" class="button"/>
+				</div>
+			</div>
+		</div>
+
+		<!--
+		*@name:group2_1
+		*@note:instruction for group 2
+		-->
+		<div class="purple container hidden" id="group2_1">
+			<div class="center_block">
+				<h1>第二组-实验说明</h1>
+				<article class="left">
+					<p>
+						下面进行的实验请您先完成测试训练后再进行实际测试。测试训练进行多次练习,并在训练完成进行实际测试。
+						请注意：实际测试部分选择时，您将仅有一次选择的机会。
+					</p>
+				</article>
+				<div class="center">
+					<input type="button" value="开始测试训练" id="group2_train_begin" class="button"/>
+				</div>
+			</div>
+		</div>
+
+		<!--
+		*@name:group2_2
+		*@note:train for group 2
+		-->
+		<div class="cyan container hidden" id="group2_2">
+			<div class="center_block" width="800 px">
+				<h1>第二组-测试训练</h1>
+				<article class="left">
+					<p>
+						说明：在本部分，下面有两个区块，您在点击区块一与区块二时，会得到对应的收益，您需要多次点击观察对应的收益。
+						并在训练完成后，点击“完成训练”进入实际测试。
+					</p>
+				</article>
+				<div class="center">
+					收益：
+					<input type="text" id="group2_train_bonus" disabled="disabled" class="text"/>
+					<br/>
+					<input type="button" value="选择方案A" id="group2_train_1" class="button"/>
+					<input type="button" value="选择方案B" id="group2_train_2" class="button"/>
+					<input type="button" value="完成训练" id="group2_train_end" class="button">
+				</div>
+			</div>
+		</div>
+
+		<!--
+		*@name:group2_3
+		*@note:actual test for group 2
+		-->
+		<div class="yellow container hidden" id="group2_3">
+			<div class="center_block">
+				<h1>第二组-实际测试</h1>
+				<article class="center">
+					<p class="center">
+						请注意：您将只有一次机会。
+					</p>
+				</article>
+				<div class="center">
+					收益：
+					<input type="text" id="group2_test_bonus" disabled="disabled" class="text"/>
+					<br/>
+					<input type="button" value="选择方案A" id="group2_test_1" class="button"/>
+					<input type="button" value="选择方案B" id="group2_test_2" class="button"/>
+				</div>
+			</div>
+		</div>
+
+		<!--
+		*@name:thanks
+		*
+		-->
+		<div class="blue container hidden" id="thanks">
+			<a name="thanks"></a>
+			<div class="center_block">
+				<h1>测试完成</h1>
+				<h1>再次感谢您的参与</h1>
+			</div>
+		</div>
+	</body>
+</html>

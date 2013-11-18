@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>李乐乐的心理测验</title>
+		<link rel="stylesheet" href="/static/css/normalize.css" />
+		<link rel="stylesheet" href="/static/css/style.css" />
+		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="/static/js/admin.js"></script>
+		<link rel="icon" type="image/x-icon" href="/static/img/icon.png" />
+	</head>
+	<body>
+		<!--
+		*@name:login
+		*
+		-->
+		<div class="purple container" id="login">
+			<div class="center_block">
+				<h1>管理员登录</h1>
+				<article class="center">
+					<p class="center">
+						请输入用户名和密码登录
+					</p>
+				</article>
+				<div class="center">
+					<div class="left" style="width: 400px;margin:auto">
+						用户：<input type="text" id="username"  class="text"/>
+						<br/>
+						密码：<input type="text" id="password"  class="text"/>
+					</div>
+					<input type="button" value="登录" id="submit" class="button"/>
+				</div>
+			</div>
+		</div>
+		
+		<!--
+		*@name:instruction
+		-->
+		<div class="blue container hidden" id="admin">
+			<div class="center_block">
+				<h2>实验结果:<a href="/saveexcel">下载数据</a></h2>
+				<h2>修改分组二实验条件</h2>
+				<div class="center">
+					好的概率：<input type="text" id="probility_good" class="text"/><br/>
+					好的收益：<input type="text" id="bonus_good" class="text"/><br/>
+					坏的收益：<input type="text" id="bonus_bad" class="text"/><br/>
+					固定收益：<input type="text" id="bonus_fix" class="text"/><br/>
+					<input type="button" value="保存修改" id="saved" class="button"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
